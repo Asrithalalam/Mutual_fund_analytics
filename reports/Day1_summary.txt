@@ -1,0 +1,23 @@
+DAY 1 SUMMARY
+
+Datasets Loaded: 10
+
+Data Quality Checks:
+- No duplicate records found
+- All AMFI codes in fund_master exist in nav_history
+- Only monthly_sip_inflows contains missing values
+  (yoy_growth_pct has 12 missing values)
+
+Fund Exploration:
+- 10 fund houses
+- 2 categories (Equity, Debt)
+- 12 sub-categories
+- 5 risk categories
+
+API Integration:
+- Successfully fetched NAV data from MFAPI
+- Saved live NAV CSV files
+
+Observation:
+- Some AMFI codes provided in the assignment returned
+  different schemes than expected from MFAPI.
