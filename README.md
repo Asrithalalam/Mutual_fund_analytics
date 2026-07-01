@@ -25,15 +25,19 @@ MUTUAL_FUND_ANALYTICS
 ├── data/
 │   ├── raw/
 │   └── processed/
-│
+├── EDA_charts/
 ├── notebooks/
+├── database/
 ├── sql/
 ├── dashboard/
 ├── reports/
 │
 ├── data_ingestion.py
+├── data_cleaning.py
+├── database.py
 ├── live_nav_fetch.py
 ├── requirements.txt
+├── data_dictionary.md
 ├── README.md
 ```
 
@@ -104,6 +108,69 @@ The project uses the following datasets:
 
 ---
 
+## Day 2 Deliverables
+
+### Data Cleaning & Preprocessing
+
+- Cleaned all raw datasets and created processed versions.
+- Standardized column names across datasets.
+- Converted date columns to proper datetime format.
+- Removed duplicate records.
+- Handled missing values using appropriate techniques.
+- Corrected inconsistent data types.
+- Standardized categorical values.
+- Validated AMFI codes across related datasets.
+- Created derived columns where required (e.g., year from date).
+- Saved cleaned datasets into the `processed` folder.
+
+### Processed Datasets
+
+- 01_fund_master_cleaned.csv
+- 02_nav_history_cleaned.csv
+- 03_aum_history_cleaned.csv
+- 04_monthly_sip_inflows_cleaned.csv
+- 05_category_inflows_cleaned.csv
+- 06_industry_folio_count_cleaned.csv
+- 07_scheme_performance_cleaned.csv
+- 08_investor_transactions_cleaned.csv
+- 09_portfolio_holdings_cleaned.csv
+- 10_benchmark_indices_cleaned.csv
+
+### Key Outcomes
+
+- Improved data consistency across datasets.
+- Removed invalid and duplicate records.
+- Prepared datasets for visualization and analysis.
+- Established a clean data pipeline for downstream EDA and SQL analysis.
+
+---
+## Day 3 Deliverables
+
+### Exploratory Data Analysis (EDA)
+
+Created multiple visualizations to analyze trends, fund performance, investor activity, and portfolio allocation.
+
+### Visualizations Created
+
+1. Daily NAV Trend Analysis (Plotly)
+2. AUM Growth by Fund House (Seaborn)
+3. Monthly SIP Inflow Trend (Plotly)
+4. Category-wise Net Inflow Heatmap (Seaborn)
+5. Mutual Fund Folio Count Growth
+6. NAV Return Correlation Matrix
+7. Sector Allocation Donut Chart
+
+### Key EDA Insights
+
+- Daily NAVs showed an overall upward trend across most schemes.
+- AUM increased consistently across major fund houses.
+- Monthly SIP inflows demonstrated sustained growth over the analysis period.
+- Equity-oriented categories attracted comparatively higher inflows.
+- Mutual fund folios increased steadily, indicating growing retail participation.
+- Daily NAV returns of several equity schemes showed strong positive correlations.
+- Financial Services and Information Technology represented significant portions of portfolio allocations.
+
+---
 ## Technologies Used
 
 - Python
@@ -145,35 +212,57 @@ pip install -r requirements.txt
 ## Project Workflow
 
 ```text
-Extract
-│
-├── CSV Datasets
-└── MFAPI Data
-
-Transform
-│
-├── Data Validation
-├── Data Cleaning
-└── Quality Checks
-
-Load
-│
-├── Processed Data
-├── SQL Analysis
-└── Dashboards
+CSV Datasets
+      │
+      ▼
+Data Ingestion
+      │
+      ▼
+Data Validation
+      │
+      ▼
+Data Cleaning & Preprocessing
+      │
+      ▼
+Processed Datasets
+      │
+      ▼
+Exploratory Data Analysis (EDA)
+      │
+      ▼
+SQL Analysis
+      │
+      ▼
+Dashboard Development
+      │
+      ▼
+Business Insights & Reporting
 ```
+
+## EDA Charts Generated
+
+The following charts were generated and exported as PNG files:
+
+- NAV Trend Analysis
+- AUM Growth by Fund House
+- Monthly SIP Inflow Trend
+- Category Inflow Heatmap
+- Folio Count Growth
+- NAV Return Correlation Matrix
+- Sector Allocation Donut Chart
+
+All charts are stored in the `EDA_charts/` directory.
 
 ---
 
 ## Future Work
 
-- Data Cleaning
-- Feature Engineering
-- Exploratory Data Analysis (EDA)
-- SQL Queries and Analysis
-- Dashboard Development
-- Performance Benchmarking
-- Business Insights Generation
+- SQL-based analytical queries
+- Dashboard development using Power BI
+- Advanced business insights
+- Performance benchmarking against market indices
+- Portfolio performance analytics
+- Interactive reporting and visualization
 
 ---
 
